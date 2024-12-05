@@ -18,7 +18,7 @@ public class GenerateParticles : MonoBehaviour
         //PC
         if (Input.GetMouseButtonDown(0))
         {
-            InstanceParticle(Input.mousePosition);
+            InstanceParticle(Input.mousePosition,Color.green);
         }
         //Android
 #elif UNITY_ANDROID//PARA COMPILAR EN ANDROID
@@ -26,19 +26,21 @@ public class GenerateParticles : MonoBehaviour
         {
             if (touch.phase == TouchPhase.Began)//dectar el toque en la pantalla por primera vez
             {
-                InstanceParticle(touch.position);
+                InstanceParticle(touch.position,Color.blue);
             }
         }
 #endif//para acabar el if
     }
-        void InstanceParticle(Vector3 screenCoords)
+        void InstanceParticle(Vector3 screenCoords,Color color)
         {
             screenCoords.z = 10;
             Vector3 gameCoords = _cam.ScreenToWorldPoint(screenCoords);
-            Instantiate(particlesprefab, gameCoords, Quaternion.identity);//para instanciar el prefab
+            //Instantiate(particlesprefab, gameCoords, Quaternion.identity);//para instanciar el prefab
+             GameObject particleClone=Instantiate(particlesprefab,gameCoords,Quaternion.identity);
+          particleClone.GetComponent<Renderer>().material.color =color;
         }
-    }
 }
+
 
     
 
