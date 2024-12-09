@@ -361,6 +361,7 @@
 "Assets/Scripts/FlappyCamera.cs"
 "Assets/Scripts/FlappyJump.cs"
 "Assets/Scripts/GenerateParticles.cs"
+"Assets/Scripts/POOLcolumnas.cs"
 "Assets/Scripts/Pools/GameObjectPool.cs"
 "Assets/Scripts/ShootBullet.cs"
 -langversion:9.0
