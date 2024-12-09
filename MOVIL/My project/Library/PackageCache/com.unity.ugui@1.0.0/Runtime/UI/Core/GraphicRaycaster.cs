@@ -157,14 +157,8 @@ namespace UnityEngine.UI
                 float h = Screen.height;
                 if (displayIndex > 0 && displayIndex < Display.displays.Length)
                 {
-#if UNITY_ANDROID
-                    // Changed for UITK to be coherent for Android which passes display relative rendering coordinates
-                    w = Display.displays[displayIndex].renderingWidth;
-                    h = Display.displays[displayIndex].renderingHeight;
-#else
                     w = Display.displays[displayIndex].systemWidth;
                     h = Display.displays[displayIndex].systemHeight;
-#endif
                 }
                 pos = new Vector2(eventPosition.x / w, eventPosition.y / h);
             }
@@ -198,11 +192,9 @@ namespace UnityEngine.UI
                 {
                     if (ReflectionMethodsCache.Singleton.raycast3D != null)
                     {
-                        RaycastHit hit;
-                        if (ReflectionMethodsCache.Singleton.raycast3D(ray, out hit, distanceToClipPlane, (int)m_BlockingMask))
-                        {
-                            hitDistance = hit.distance;
-                        }
+                        var hits = ReflectionMethodsCache.Singleton.raycast3DAll(ray, distanceToClipPlane, (int)m_BlockingMask);
+                        if (hits.Length > 0)
+                            hitDistance = hits[0].distance;
                     }
                 }
 #endif
