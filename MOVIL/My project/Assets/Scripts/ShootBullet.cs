@@ -15,11 +15,12 @@ public class ShootBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Firel"))
+        if (Input.GetButtonDown("Fire1"))
         {
             GameObject obj = bulletPool.GiveMeAInactiveGameObject();
             if (obj != null) //si hay informacion en el objecto
             {
+              
                 obj.SetActive(true);//activar el objecto
                 obj.transform.position = transform.position;
                 obj.GetComponent<Bullet>().SetDirection(transform.forward); 

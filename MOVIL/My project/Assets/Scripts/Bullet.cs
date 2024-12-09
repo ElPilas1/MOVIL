@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Vector3 _dir;
-    public Rigidbody rb;
+    private Rigidbody rb;
     public float maxtime;
     private float currentTime;
     public float speed;
@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
         }
     }
     // Update is called once per frame
-    private void FixeUpdate()
+    private void FixedUpdate()
     {
         rb.velocity = speed * _dir;
     }
