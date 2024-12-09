@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         if (currentTime > maxtime)
         {
             currentTime = 0;
-            gameObject.SetActive(false);
+            gameObject.SetActive(false);//se devuelve a la pool asi
         }
     }
     // Update is called once per frame
