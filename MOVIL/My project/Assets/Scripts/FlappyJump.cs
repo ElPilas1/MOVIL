@@ -22,7 +22,7 @@ public class FlappyJump : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            ApplyJump();
+            ApplyJump();//Aplica el saltos
 
         }
 
@@ -40,8 +40,8 @@ public class FlappyJump : MonoBehaviour
 
     void ApplyJump()
     {
-        rb.velocity = new Vector3(0, 0, 0);
-        rb.AddForce(Vector3.up *addforce);
+        rb.velocity = new Vector3(0, 0, 0);//solo vectores 0 de velocidad
+        rb.AddForce(Vector3.up *addforce);//lo multiplica para arriba con la fuerza que queiras
        
     }
 }
