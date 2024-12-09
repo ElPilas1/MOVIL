@@ -359,6 +359,7 @@
 -analyzer:"C:/Program Files/Unity 2022.3.21f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/FlappyCamera.cs"
 "Assets/Scripts/FlappyJump.cs"
+"Assets/Scripts/GameObjectPool.cs"
 "Assets/Scripts/GenerateParticles.cs"
 -langversion:9.0
 

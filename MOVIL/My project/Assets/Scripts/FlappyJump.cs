@@ -42,5 +42,6 @@ public class FlappyJump : MonoBehaviour
     {
         rb.velocity = new Vector3(0, 0, 0);
         rb.AddForce(Vector3.up *addforce);
+       
     }
 }
