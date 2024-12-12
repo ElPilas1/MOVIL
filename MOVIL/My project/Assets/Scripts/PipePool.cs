@@ -35,7 +35,7 @@ public class PipePool : MonoBehaviour
         if (obj)
         {
             obj.SetActive(true);//activar el objecto
-            obj.transform.position = transform.position;
+            obj.transform.localPosition = transform.position;
             obj.GetComponent<Pipe>().SetDirection(Vector3.left);
 
         }

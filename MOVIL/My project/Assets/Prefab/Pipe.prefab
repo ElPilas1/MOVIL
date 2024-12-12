@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3076570868652256877}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -343.16663, y: -114.4, z: -543.4471}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 6.8125863, y: 20.342865, z: 6.8125863}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -117,7 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6762774355806328966}
   - component: {fileID: 3078547644306500172}
-  - component: {fileID: -3154121425067113821}
+  - component: {fileID: -8216241677934790153}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -134,8 +134,8 @@ Transform:
   m_GameObject: {fileID: 7299561660182766222}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 349.16663, y: 94, z: 617.4471}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 349.16663, y: 131.62, z: 617.4471}
+  m_LocalScale: {x: 2.3435, y: 2.3435, z: 2.3435}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1484182052564944011}
@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55ed1c4a4a73eaa428629545e954a32b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxTime: 4
-  speed: 4
---- !u!54 &-3154121425067113821
+  maxTime: 8
+  speed: 20.24
+--- !u!54 &-8216241677934790153
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,7 +178,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -211,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 7370012055915915338}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -343.16663, y: -53.2, z: -543.4471}
+  m_LocalPosition: {x: 0, y: -56, z: 0}
   m_LocalScale: {x: 6.8125863, y: 20.342865, z: 6.8125863}
   m_ConstrainProportionsScale: 0
   m_Children: []
