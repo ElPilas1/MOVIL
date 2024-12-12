@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlappyJump : MonoBehaviour
 {
-    public float addforce;
+    public float addforce, rotationSpeed;
     private Rigidbody rb;
     private Camera _cam;
     // Start is called before the first frame update
@@ -37,11 +37,24 @@ public class FlappyJump : MonoBehaviour
         }
 #endif
     }
+    private void FixedUpdate()
+    {
+        transform.rotation = Quaternion.Euler(0, 0, rb.velocity.y * -rotationSpeed);
+    }
+
 
     void ApplyJump()
     {
         rb.velocity = new Vector3(0, 0, 0);//solo vectores 0 de velocidad
-        rb.AddForce(Vector3.up *addforce);//lo multiplica para arriba con la fuerza que queiras
-       
+        rb.AddForce(Vector3.up * addforce);//lo multiplica para arriba con la fuerza que queiras
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Pipe"))
+        {
+            Debug.Log("Te chocaste");
+            Destroy(this);
+        }
     }
 }
