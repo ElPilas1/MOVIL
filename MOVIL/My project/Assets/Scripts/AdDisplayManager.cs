@@ -11,7 +11,7 @@ public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
     public int AndroidID;
     public int AppleID;
     public bool testMode = true;
-    private string currentAdID;
+    private string adType="Banner_Android";
 
     public void OnUnityAdsAdLoaded(string placementId)
     {
@@ -64,13 +64,12 @@ public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
         {
 #if UNITY_ANDROID||UNITY_EDITOR||UNITY_STANDALONE_WIN
             Advertisement.Initialize(AndroidID.ToString(), testMode); //TESTMODE SIEMPRE EN TRUE PARA NO DENUNCIAS
-            currentAdID=AndroidID.ToString();
 #elif UNITY_IOS
           Advertisement.Initialize(AppleId.ToString(), testMod);
-            currentAdID=AppleID.ToString();
+
 
 #endif
-
+            ShowAD();
 
         }
     }
@@ -78,8 +77,8 @@ public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
     {
         if(Advertisement.isInitialized)
         {
-            Advertisement.Load(AndroidID.ToString(currentAdID));
-            Advertisement.Show(AndroidID.ToString(currentAdID));   
+            Advertisement.Load(AndroidID.ToString(adType));
+            Advertisement.Show(AndroidID.ToString(adType));   
         }
     }
 

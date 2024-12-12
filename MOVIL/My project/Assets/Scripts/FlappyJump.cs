@@ -23,6 +23,7 @@ public class FlappyJump : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             ApplyJump();//Aplica el saltos
+            AdDisplayManager.instance.ShowAD();
 
         }
 
