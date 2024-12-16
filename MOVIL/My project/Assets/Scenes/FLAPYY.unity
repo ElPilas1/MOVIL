@@ -361,7 +361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf606089bcb5584b8eab06f721d26b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  addforce: 412.6
+  addforce: 800
   rotationSpeed: 0
 --- !u!65 &448218777
 BoxCollider:
@@ -845,6 +845,8 @@ MonoBehaviour:
   pipePool: {fileID: 1532289076}
   maxTime: 3
   currentTime: 0
+  maxHeight: -10
+  minHeigth: 35
 --- !u!1 &1532289074
 GameObject:
   m_ObjectHideFlags: 0
