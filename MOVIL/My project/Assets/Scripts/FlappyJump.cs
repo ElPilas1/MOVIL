@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FlappyJump : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class FlappyJump : MonoBehaviour
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             ApplyJump();//Aplica el saltos
-            
+
 
         }
 
@@ -40,7 +41,7 @@ public class FlappyJump : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        transform.rotation = Quaternion.Euler(0, 0, rb.velocity.y * -rotationSpeed);
+        transform.rotation = Quaternion.Euler(0, 180, rb.velocity.y * -rotationSpeed);
     }
 
 
@@ -52,10 +53,12 @@ public class FlappyJump : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Pipe"))
+        if (other.gameObject.CompareTag("Pipe"))//si el gameobject es Pipe 
         {
             Debug.Log("Te chocaste");
-            Destroy(this);
+            SceneManager.LoadScene("Inicio");
+            Destroy(gameObject);
         }
+
     }
 }
