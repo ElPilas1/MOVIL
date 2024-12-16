@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance; //el game manager controla las variables del juego y es accesible a todos
     private KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
-    public uint[] characterIndexes;
     public AudioClip selection;
 
     private void Awake()
