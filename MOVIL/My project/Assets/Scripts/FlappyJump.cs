@@ -49,7 +49,6 @@ public class FlappyJump : MonoBehaviour
     {
         rb.velocity = new Vector3(0, 0, 0);//solo vectores 0 de velocidad
         rb.AddForce(Vector3.up * addforce);//lo multiplica para arriba con la fuerza que queiras
-        AdDisplayManager.instance.ShowAD(); 
 
     }
     private void OnTriggerEnter(Collider other)
