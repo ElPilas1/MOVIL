@@ -8,7 +8,7 @@ public class GetPoints : MonoBehaviour
     {
         if (other.gameObject.GetComponent<FlappyJump>())
         {
-            GameManager.instance.AddPoints();
+            GameManager.instance.SetPoints(GameManager.instance.GetPoints()+1);
         }
     }
 }

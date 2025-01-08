@@ -405,6 +405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selection: {fileID: 0}
+  points: 0
 --- !u!1 &953358587
 GameObject:
   m_ObjectHideFlags: 0
