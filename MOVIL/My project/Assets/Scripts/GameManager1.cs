@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
     {
 
         SceneManager.LoadScene(sceneName);
-        AudioManager.instance.ClearAudio();
+        //AudioManager.instance.ClearAudio();
         points = 0;
         AdDisplayManager.instance.ShowAD();
     }

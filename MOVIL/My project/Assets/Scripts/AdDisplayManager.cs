@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Advertisements;
 using UnityEngine.SceneManagement;
 
-public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener
+public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsShowListener, IUnityAdsInitializationListener
 {
     public static AdDisplayManager instance;
     public string unityAdsID;//
@@ -63,9 +63,9 @@ public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
         if (!Advertisement.isInitialized)
         {
 #if UNITY_ANDROID||UNITY_EDITOR||UNITY_STANDALONE_WIN
-            Advertisement.Initialize(AndroidID.ToString(), testMode); //TESTMODE SIEMPRE EN TRUE PARA NO DENUNCIAS
+            Advertisement.Initialize(AndroidID.ToString(), testMode, this); //TESTMODE SIEMPRE EN TRUE PARA NO DENUNCIAS
 #elif UNITY_IOS
-          Advertisement.Initialize(AppleId.ToString(), testMod);
+          Advertisement.Initialize(AppleId.ToString(), testMod, this);
 
 
 #endif
@@ -77,8 +77,8 @@ public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
     {
         if(Advertisement.isInitialized)
         {
-            Advertisement.Load(AndroidID.ToString(adType));
-            Advertisement.Show(AndroidID.ToString(adType));   
+            Advertisement.Load(AndroidID.ToString(adType), this);
+            Advertisement.Show(AndroidID.ToString(adType),this);   
         }
     }
 
@@ -86,5 +86,13 @@ public class AdDisplayManager : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
     void Update()
     {
 
+    }
+
+    public void OnInitializationComplete()
+    {
+    }
+
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
     }
 }
