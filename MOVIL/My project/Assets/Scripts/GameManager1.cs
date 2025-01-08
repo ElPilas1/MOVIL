@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     private KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
     public AudioClip selection;
+    public int points;
+    public enum GameManagerVariables { TIME, POINTS };//para facilitar el codigo
+
 
     private void Awake()
     {
@@ -39,6 +42,15 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.ClearAudio();
         }
     }
+    public void SetPoints(int value)
+    {
+        points = value;
+    }
+    public int GetPoints()
+    {
+        return points;
+    }
+
 
 
 
