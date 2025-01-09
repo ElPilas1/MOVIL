@@ -13,5 +13,6 @@ public class ButtonFunticon : MonoBehaviour
     {
         GameManager.instance.LoadScene(sceneName);
     }
-
 }
+
+  

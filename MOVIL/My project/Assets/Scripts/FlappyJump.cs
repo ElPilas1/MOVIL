@@ -8,6 +8,7 @@ public class FlappyJump : MonoBehaviour
     public float addforce, rotationSpeed;
     private Rigidbody rb;
     private Camera _cam;
+    public Material material;
     // Start is called before the first frame update
     // Start is called before the first frame update
     void Start()
@@ -51,14 +52,26 @@ public class FlappyJump : MonoBehaviour
         rb.AddForce(Vector3.up * addforce);//lo multiplica para arriba con la fuerza que queiras
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        if (other.gameObject.CompareTag("Pipe"))//si el gameobject es Pipe 
-        {
-            Debug.Log("Te chocaste");
+        //if (other.gameObject.CompareTag("Pipe"))//si el gameobject es Pipe 
+        //{
+        //    Debug.Log("Te chocaste");
+        //    SceneManager.LoadScene("Inicio");
+        //    Destroy(gameObject);
+        //}
+        if (collision.gameObject.GetComponent<Pipe>())
+    {
+            GameManager.instance.SetDeaths(GameManager.instance.GetDeaths() + 1);
+            material.color = Color.red;
             SceneManager.LoadScene("Inicio");
-            Destroy(gameObject);
+            GameManager.instance.SetPoints(0);
         }
 
+        if (GameManager.instance.GetDeaths() >= Random.Range(3, 6))
+        {
+            AdDisplayManager.instance.ShowAD();
+            GameManager.instance.SetDeaths(0);
+        }
     }
 }

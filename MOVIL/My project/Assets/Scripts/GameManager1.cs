@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance; //el game manager controla las variables del juego y es accesible a todos
-    private KeyCode Esc = KeyCode.Escape;
+    public   KeyCode Esc = KeyCode.Escape;
     //public AudioClip SelectClip;
     public AudioClip selection;
-    public int points;
+    public int points, deaths;
     public enum GameManagerVariables { TIME, POINTS };//para facilitar el codigo
 
 
@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(Esc))
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Inicio");
             AudioManager.instance.ClearAudio();
         }
         if (Input.GetKeyDown(KeyCode.R))
@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             AudioManager.instance.ClearAudio();
         }
+       
     }
     public void SetPoints(int value)
     {
@@ -51,22 +52,26 @@ public class GameManager : MonoBehaviour
         return points;
     }
 
+    public void SetDeaths(int value)
+    {
+        deaths = value;
+    }
 
-
+    public int GetDeaths()
+    {
+        return deaths;
+    }   
 
 
     public void LoadScene(string sceneName)
     {
 
         SceneManager.LoadScene(sceneName);
-        //AudioManager.instance.ClearAudio();
+        AudioManager.instance.ClearAudio();
         points = 0;
-        AdDisplayManager.instance.ShowAD();
+        //AdDisplayManager.instance.ShowAD();
     }
 
     public void ExitGame() => Application.Quit();
-
-
-
 
 }
